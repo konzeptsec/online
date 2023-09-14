@@ -2475,13 +2475,13 @@ section{
   cursor: pointer;
 }
 
-/* Style the list items */
-.navbar-nav li {
-  display: flex; /* Make list items inline */
-  margin-right: 10px; /* Add spacing between list items */
-  align-items: center;
+.inpt{
+  width: 50%;
+  padding: 1rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
-
 
 
 

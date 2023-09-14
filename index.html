@@ -76,7 +76,7 @@
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
-                <ul class="nav navbar-nav navbar-right" style="display: flex; align-items: center;">
+                <ul class="nav navbar-nav navbar-right">
                   <li class="active">
                     <a class="page-scroll" href="#home">Home</a>
                   </li>
@@ -90,8 +90,7 @@
                     <a class="page-scroll" href="#contact">Contact</a>
                   </li>
                   <li>
-                    <div style="    display: flex;
-    align-items: center;">
+                    <div style="margin-top: 1.5rem;">
                       <button id="loginButton">Login</button>
                     </div>
 
@@ -888,13 +887,23 @@
       <h2 style="text-align: center; margin-top: 5rem;"><span style="color: #3ec1d5; ">K</span>onzept</h2>
 
       <form id="login-form">
-        <div class="group" style="margin-top: 5rem;">
-          <input input type="password" id="password" name="password" required>
-          <span class="highlight"></span>
-          <span class="bar"></span>
-          <label>Security Key</label>
+
+        <div style="display: flex; flex-direction: column; align-content:center; margin-top: 5rem;">
+          <div style=" display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;">
+            <input class="inpt" type="text" id="username" name="userman" required placeholder="username">
+          </div>
+          <div style=" display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center; margin-top: 2rem;">
+            <input class="inpt" type="password" id="password" name="password" required placeholder="Security key">
+
+          </div>
         </div>
-        <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: center; margin-top: 5rem;">
           <button class="btnl" type="submit">Login</button>
         </div>
       </form>
@@ -1009,25 +1018,29 @@
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault(); // Prevent the form from submitting
 
-      // Get the password entered by the user
+      // Get the username and password entered by the user
+      const usernameInput = document.getElementById("username");
       const passwordInput = document.getElementById("password");
+      const username = usernameInput.value;
       const password = passwordInput.value;
 
-      // Replace this with your actual password validation logic
-      const correctPassword = "5T$P9qXyR3u7vWz@L1m#J6GcF8d*Z2Aa"; // Change this
+      // Replace this with your actual username and password validation logic
+      const correctUsername = "JohannW"; // Change this
+      const correctPassword = "WeberF8d*Z2Aa"; // Change this
 
-      if (password === correctPassword) {
-        // Password is correct, set a login cookie
+      if (username === correctUsername && password === correctPassword) {
+        // Username and password are correct, set a login cookie
         document.cookie = "loginStatus=loggedIn";
 
         // Redirect to accountdetails.html
         window.location.href = "accountdetails.html";
       } else {
-        // Password is incorrect, display an error message
+        // Username or password is incorrect, display an error message
         const errorMessage = document.getElementById("error-message");
-        errorMessage.textContent = "Incorrect password. Please try again.";
+        errorMessage.textContent = "Incorrect username or password. Please try again.";
       }
     });
+
   </script>
 </body>
 
